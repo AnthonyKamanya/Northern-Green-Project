@@ -9,15 +9,14 @@ export default getDataProducts = async (root) => {
   table.querySelector("thead tr").innerHTML = "";
   table.querySelector("tbody").innerHTML = "";
 
-  // console.log(data);
+  //console.log(data);
 
   table.querySelector("thead tr").insertAdjacentHTML("beforeend", `
-    <th>Product</th>
-    <th>Variety</th>
-    <th>Pack Size</th>
-    <th>Unit Price</th>
-    <th>Items Sold</th>
-    <th>In Stock</th>
+    <th>Product_ID</th>
+    <th>Product_name</th>
+    <th>Product_origin</th>
+    <th>Product_price</th>
+    <th>Product_stock</th>
   `);
 
   /* Populate Headers */
@@ -26,12 +25,11 @@ export default getDataProducts = async (root) => {
     let items_sold = parseInt(r.items_sold).toLocaleString();
 
     table.querySelector("tbody").insertAdjacentHTML("beforeend", `
-      <td>${r.product_item}</td>
-      <td>${r.product_variety}</td>
-      <td>${r.pack_size}</td>
-      <td>£${r.unit_price}</td>
-      <td>${items_sold}</td>
-      <td>${r.inventory}</td>
+      <td>${r.Product_ID}</td>
+      <td>${r.Product_name}</td>
+      <td>${r.Product_origin}</td>
+      <td>${r.Product_price}</td>
+      <td>${r.Product_stock}</td>
     `
     );
   }
