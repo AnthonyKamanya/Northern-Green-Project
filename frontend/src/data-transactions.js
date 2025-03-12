@@ -17,7 +17,6 @@ export default getDataTransactions = async (root) => {
     <th>Date</th>
     <th>Amount</th>
     <th>Items</th>
-    <th>Feedback</th>
   `);
 
   /* Populate Headers */
@@ -29,9 +28,8 @@ export default getDataTransactions = async (root) => {
       <td>${r.transaction}</td>
       <td>${r.customer}</td>
       <td>${d}</td>
-      <td>£${r.amount}</td>
+      <td>${r.amount}</td>
       <td>${r.items}</td>
-      <td>${r.feedback}</td>
     `
     );
   }

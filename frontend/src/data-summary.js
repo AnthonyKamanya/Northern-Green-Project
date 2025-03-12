@@ -3,40 +3,40 @@ export default getDataSummary = async (root) => {
 
   const response = await fetch(root.dataset.url);
   const data = await response.json();
-
+ 
   /* Clear holding html in the table */
-  document.getElementById("transactions").innerHTML = "";
-  document.getElementById("total-products-sold").innerHTML = "";
-  document.getElementById("avg-feedback").innerHTML = "";
-  document.getElementById("total-revenue").innerHTML = "";
-  document.getElementById("total-product-cost").innerHTML = "";
-  document.getElementById("gross-profit").innerHTML = "";
+  document.getElementById("total_transactions").innerHTML = "";
+  document.getElementById("products_sold").innerHTML = "";
+  document.getElementById("revenue").innerHTML = "";
+  document.getElementById("product_cost").innerHTML = "";
+  document.getElementById("gross_profit").innerHTML = "";
+  document.getElementById("net_profit").innerHTML = "";
 
   /* Populate Data */
   for (const r of data) {
 
-    document.getElementById("transactions").insertAdjacentHTML("beforeend", `
+    document.getElementById("total_transactions").insertAdjacentHTML("beforeend", `
       ${parseInt(r.total_transactions).toLocaleString()}
     `);
 
-    document.getElementById("total-products-sold").insertAdjacentHTML("beforeend", `
-      ${parseInt(r.total_products_sold).toLocaleString()}
+    document.getElementById("products_sold").insertAdjacentHTML("beforeend", `
+      ${parseInt(r.products_sold).toLocaleString()}
     `);
 
-    document.getElementById("avg-feedback").insertAdjacentHTML("beforeend", `
-      ${r.avg_feedback}
+    document.getElementById("revenue").insertAdjacentHTML("beforeend", `
+      ${r.revenue}
     `);
 
-    document.getElementById("total-revenue").insertAdjacentHTML("beforeend", `
-      £${parseInt(r.revenue).toLocaleString()}
+    document.getElementById("product_cost").insertAdjacentHTML("beforeend", `
+      ${r.product_cost}
     `);
 
-    document.getElementById("total-product-cost").insertAdjacentHTML("beforeend", `
-      £${parseInt(r.cost_of_sales).toLocaleString()}
+    document.getElementById("gross_profit").insertAdjacentHTML("beforeend", `
+      ${r.gross_profit}
     `);
 
-    document.getElementById("gross-profit").insertAdjacentHTML("beforeend", `
-      £${parseInt(r.gross_profit).toLocaleString()}
+    document.getElementById("net_profit").insertAdjacentHTML("beforeend", `
+      ${(r.net_profit)}
     `);
 
   }

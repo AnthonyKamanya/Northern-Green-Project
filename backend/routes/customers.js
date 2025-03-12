@@ -10,7 +10,7 @@ const db = require('../db');        //Connects to DB & sends a GET request for i
 router.get('/', (req, res) => {
   db.any(
     `
-    SELECT * FROM "sequel-mart-schema".v_Top_Customers;
+    SELECT * FROM "northern-green-schema".v_best_customers_repeated_purchase;
     `
   )
   .then(rows => {
